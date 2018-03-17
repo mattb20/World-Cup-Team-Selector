@@ -14,11 +14,14 @@ def interactive_menu
   nation = gets.chomp
   greet_manager(nation)
   choose_formation
+  choose_first_11
+  print_team
+  choose_substitues
 end
 def input_formation
   puts "Please enter the formation you would like to add:"
-  @formations
-
+  formation = gets.chomp
+  @formations.push(formation)
 end
 def choose_formation
   puts "Please choose your formation or enter custom to input a custom one:"
@@ -28,6 +31,7 @@ def choose_formation
     manager_choice = gets.chomp
       if manager_choice.downcase == "custom"
         input_formation
+        choose_formation
       else
         @formations.at(manager choice.to_i - 1)
       end
